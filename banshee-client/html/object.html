@@ -1,0 +1,20 @@
+<h1>{{object.name}}</h1>
+<div class="row">
+    <div class="span4" ng-repeat="(category, properties) in object.properties">
+        <table class="table table-condensed table-bordered">
+            <thead>
+            <tr>
+                <th colspan="2" class="force-text-center">
+                    <span class="label">{{category}}</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="(key, value) in properties">
+                <td>{{key}}</td>
+                <td class="force-text-right">{{value}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
