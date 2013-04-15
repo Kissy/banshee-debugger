@@ -3,16 +3,14 @@
     <div class="span12">
         <ul class="thumbnails" ng-controller="ObjectsController">
             <li class="span3" ng-repeat="(id, object) in objects">
-                <div class="thumbnail">
+                <a href="#objects/{{object.id}}" class="thumbnail">
                     <span class="label">{{object.category}}</span>
                     <div class="caption">
-                        <a href="#objects/{{object.id}}">
-                            <h3 class="text-center force-wrap">{{object.name}}</h3>
-                        </a>
-                        <p>Properties : <span class="pull-right badge">{{object.propertiesLength}}</span></p>
-                        <p>Updates : <span class="pull-right badge">{{object.updates}}</span></p>
+                        <h3 class="text-center force-wrap">{{object.name}}</h3>
+                        <p>Properties : <span class="pull-right badge">{{object.numberOfProperties}}</span></p>
+                        <p>Updates (per seconds) : <span class="pull-right badge">{{object.updatesPerSeconds}}</span></p>
                     </div>
-                </div>
+                </a>
             </li>
         </ul>
     </div>

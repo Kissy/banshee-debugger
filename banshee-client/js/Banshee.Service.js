@@ -39,27 +39,40 @@ angular.module('Banshee.Service', [])
                 var byteBuffer = dcodeIO.ByteBuffer.wrap(result);
                 var debugHolderDTO = debugHolderProtoBuilder['DebugHolderProto'].decode(byteBuffer);
                 angular.forEach(debugHolderDTO.objects, function (object) {
-                    self.filterProperties(object);
-                    this[object['id']] = object;
-                }, this.objects);
-                console.log(this.objects);
+                    self.updateObject(object);
+                });
             },
-            filterProperties: function (object) {
-                var properties = {};
-                object.propertiesLength = object.properties.length;
+            updateObject: function (object) {
+                if (!this.objects[object['id']]) {
+                    this.objects[object['id']] = {};
+                }
+                var currentObject = this.objects[object['id']];
+                if (!currentObject.properties) {
+                    currentObject.properties = {};
+                }
+
+                // All properties
+                angular.forEach(object, function(value, key) {
+                   if (key == 'properties') {
+                       return;
+                   }
+                   currentObject[key] = value;
+                });
+
+                // Entity properties
                 angular.forEach(object.properties, function (property) {
                     if (!this[property['category']]) {
                         this[property['category']] = {};
                     }
                     this[property['category']][property['key']] = property['value'];
-                }, properties);
-                object.properties = properties;
+                }, currentObject.properties);
+
+                // Additional properties
+                currentObject.numberOfProperties = object.properties.length;
+                currentObject.updatesPerSeconds = 0;
             },
             getObjects: function() {
                 return this.objects;
-            },
-            getObject: function(objectId) {
-                return this.objects[objectId];
             }
         }
     });
