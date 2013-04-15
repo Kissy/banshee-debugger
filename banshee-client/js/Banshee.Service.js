@@ -1,37 +1,48 @@
-angular.module('Banshee.Service', []).
-    factory('bansheeData', function($rootScope) {
+angular.module('Banshee.Service', [])
+    .factory('WebSocketService', ['$rootScope', function ($rootScope) {
+        var socket = new WebSocket("ws://localhost:8080/banshee/ws");
+        return {
+            on: function (eventName, callback) {
+                socket[eventName] = function () {
+                    var args = arguments;
+                    $rootScope.$apply(function () {
+                        callback.apply(socket, args);
+                    });
+                }
+            }
+        };
+
+    }])
+    .factory('DataService', function($rootScope, WebSocketService) {
         return {
             objects: {},
             init: function () {
                 var self = this;
-                this.socket = new WebSocket("ws://localhost:8080/banshee/ws");
-                this.socket.onopen = function () {
+                WebSocketService.on('onopen', function () {
                     console.log("connected");
-                };
-                this.socket.onclose = function () {
-                    console.log("onclose");
-                };
-                this.socket.onerror = function (error) {
+                });
+                WebSocketService.on('onerror', function (error) {
                     console.log(error);
-                };
-                this.socket.onmessage = function (event) {
+                });
+                WebSocketService.on('onmessage', function (event) {
                     var reader = new FileReader();
-                    reader.onload = function (data) {
-                        var byteBuffer = dcodeIO.ByteBuffer.wrap(data.target.result);
-                        var debugHolderDTO = debugHolderProtoBuilder['DebugHolderProto'].decode(byteBuffer);
-                        self.updateData(debugHolderDTO.objects);
+                    reader['onload'] = function (data) {
+                        $rootScope.$apply(function() {
+                            self.updateData(data.target.result);
+                        });
                     };
                     reader.readAsArrayBuffer(event.data);
-                };
+                });
             },
-            updateData: function(objects) {
+            updateData: function(result) {
                 var self = this;
-                angular.forEach(objects, function (object) {
+                var byteBuffer = dcodeIO.ByteBuffer.wrap(result);
+                var debugHolderDTO = debugHolderProtoBuilder['DebugHolderProto'].decode(byteBuffer);
+                angular.forEach(debugHolderDTO.objects, function (object) {
                     self.filterProperties(object);
                     this[object['id']] = object;
                 }, this.objects);
                 console.log(this.objects);
-                $rootScope.$digest();
             },
             filterProperties: function (object) {
                 var properties = {};
