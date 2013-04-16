@@ -1,4 +1,4 @@
-angular.module('Banshee', ['Banshee.Controller', 'Banshee.Service'])
+angular.module('Banshee', ['Banshee.Controller', 'Banshee.Service', 'Banshee.Directive'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/objects', {templateUrl: 'html/objects.html', controller: 'ObjectsController'}).
