@@ -1,21 +1,26 @@
-<h1>{{objects[objectId].name}}</h1>
+<h1>{{objects[objectId].name}} <small>{{objects[objectId].id}}</small></h1>
+<div class="well" property-chart canvas-width="900" canvas-height="100" properties-value="objects[objectId].properties"></div>
 <div class="row">
-    <div class="span4" ng-repeat="(category, properties) in objects[objectId].properties">
-        <table class="table table-condensed table-bordered">
+    <div class="span12">
+        <table class="table table-hover">
             <thead>
             <tr>
-                <th colspan="2" class="force-text-center">
-                    <span class="label">{{category}}</span>
-                </th>
+                <th width="15%">Category</th>
+                <th width="40%">Name</th>
+                <th width="40%">Value</th>
+                <th width="5%">Plot</th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="(key, value) in properties">
-                <td>{{key}}</td>
-                <td class="force-text-right">{{value}}</td>
+            <tr ng-repeat="(key, property) in objects[objectId].properties">
+                <td><span class="label">{{property.category}}</span></td>
+                <td>{{property.key}}</td>
+                <td><code>{{property.value}}</code></td>
+                <td class="force-text-center">
+                    <input type="checkbox" value="{{property.key}}" ng-checked="property.plot" ng-model="property.plot">
+                </td>
             </tr>
             </tbody>
         </table>
     </div>
 </div>
-<div property-chart canvas-width="500" canvas-height="100" object-id="{{objects[objectId].name}}"></div>

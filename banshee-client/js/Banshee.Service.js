@@ -35,12 +35,11 @@ angular.module('Banshee.Service', [])
                 });
             },
             updateData: function(result) {
-                var self = this;
                 var byteBuffer = dcodeIO.ByteBuffer.wrap(result);
                 var debugHolderDTO = debugHolderProtoBuilder['DebugHolderProto'].decode(byteBuffer);
                 angular.forEach(debugHolderDTO.objects, function (object) {
-                    self.updateObject(object);
-                });
+                    this.updateObject(object);
+                }, this);
             },
             updateObject: function (object) {
                 if (!this.objects[object['id']]) {
@@ -59,24 +58,26 @@ angular.module('Banshee.Service', [])
                    if (key == 'properties') {
                        return;
                    }
-                   currentObject[key] = value;
-                });
+                   this[key] = value;
+                }, currentObject);
 
                 // Entity properties
                 angular.forEach(object['properties'], function (property) {
-                    if (!this[property['category']]) {
-                        this[property['category']] = {};
+                    var propertyId = property['category'] + '|' + property['key'];
+                    if (!this[propertyId]) {
+                        this[propertyId] = property;
+                        this[propertyId].updatesPerSeconds = 0;
+                        this[propertyId].lastUpdate = 0;
                     }
-                    this[property['category']][property['key']] = property['value'];
+                    this[propertyId]['value'] = property['value'];
+                    this[propertyId].updatesPerSeconds = Math.round(1000 / (new Date().getTime() - this[propertyId].lastUpdate));
+                    this[propertyId].lastUpdate = new Date().getTime();
                 }, currentObject['properties']);
 
                 // Additional properties
                 currentObject.numberOfProperties = object['properties'].length;
                 currentObject.updatesPerSeconds = Math.round(1000 / (new Date().getTime() - currentObject.lastUpdate));
                 currentObject.lastUpdate = new Date().getTime();
-            },
-            getObjects: function() {
-                return this.objects;
             }
         }
     });
