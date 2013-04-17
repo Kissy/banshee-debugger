@@ -20,6 +20,9 @@
                     <input type="checkbox" value="{{property.key}}" ng-checked="property.plot" ng-model="property.plot">
                 </td>
             </tr>
+            <tr ng-show="objects[objectId].numberOfProperties == 0">
+                <td colspan="4" class="force-text-center">No properties</td>
+            </tr>
             </tbody>
         </table>
     </div>
