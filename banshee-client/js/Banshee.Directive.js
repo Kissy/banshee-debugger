@@ -1,6 +1,7 @@
 angular.module('Banshee.Directive', [])
     .directive('propertyChart', function() {
         return {
+            restrict: 'E',
             replace: true,
             scope: {
                 width: '@canvasWidth',
@@ -18,7 +19,7 @@ angular.module('Banshee.Directive', [])
                             verticalSections: 3
                         },
                         labels: {
-                            fillStyle:'#555555'
+                            fillStyle:'#333333'
                         }
                     });
                 chart.streamTo(iElement[0], 500);
