@@ -12,17 +12,19 @@ angular.module('Banshee.Directive', [])
             link: function postLink($scope, iElement, iAttrs) {
                 var series = {};
                 var chart = new SmoothieChart({
+                        scaleSmoothing: 1,
+                        interpolation:'linear',
                         grid: {
                             sharpLines:true,
                             fillStyle: '#f5f5f5',
                             strokeStyle: '#e3e3e3',
-                            verticalSections: 3
+                            verticalSections: 6
                         },
                         labels: {
                             fillStyle:'#333333'
                         }
                     });
-                chart.streamTo(iElement[0], 500);
+                chart.streamTo(iElement[0], 0);
                 $scope.$watch('propertiesValue', function(newValue, oldValue) {
                     if (!newValue) {
                         return;
