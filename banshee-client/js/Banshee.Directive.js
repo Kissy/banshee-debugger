@@ -46,6 +46,9 @@ angular.module('Banshee.Directive', [])
                         }
                     }, series);
                 }, true);
+                $scope.$on('$routeChangeStart', function (scope, next, current) {
+                    chart.stop();
+                });
             }
         }
     });
