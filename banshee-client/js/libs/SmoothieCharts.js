@@ -152,6 +152,8 @@
      * whether it is replaced, or the values summed (defaults to false.)
      */
     TimeSeries.prototype.append = function(timestamp, value, sumRepeatedTimeStampValues) {
+        value = parseFloat(value);
+
         // Rewind until we hit an older timestamp
         var i = this.data.length - 1;
         while (i > 0 && this.data[i][0] > timestamp) {
@@ -289,7 +291,7 @@
             },
             cancelAnimationFrame = function(id) {
                 var cancelAnimationFrame =
-                    window.cancelAnimationFrame ||
+                    window['cancelAnimationFrame'] ||
                         function(id) {
                             clearTimeout(id);
                         };
@@ -425,8 +427,8 @@
         }
 
         // If a custom range function is set, call it
-        if (this.options.yRangeFunction) {
-            var range = this.options.yRangeFunction({min: chartMinValue, max: chartMaxValue});
+        if (this.options['yRangeFunction']) {
+            var range = this.options['yRangeFunction']({min: chartMinValue, max: chartMaxValue});
             chartMinValue = range.min;
             chartMaxValue = range.max;
         }
@@ -495,7 +497,7 @@
         context.strokeStyle = chartOptions.grid.strokeStyle;
         // Vertical (time) dividers.
         if (chartOptions.grid.millisPerLine > 0) {
-            var textUntilX = dimensions.width - context.measureText(minValueString).width + 4;
+            var textUntilX = dimensions.width + 4;
             for (var t = time - (time % chartOptions.grid.millisPerLine);
                  t >= oldestValidTime;
                  t -= chartOptions.grid.millisPerLine) {
@@ -510,11 +512,11 @@
                 context.closePath();
 
                 // Display timestamp at bottom of this line if requested, and it won't overlap
-                if (chartOptions.timestampFormatter && gx < textUntilX) {
+                if (chartOptions['timestampFormatter'] && gx < textUntilX) {
                     // Formats the timestamp based on user specified formatting function
                     // SmoothieChart.timeFormatter function above is one such formatting option
                     var tx = new Date(t),
-                        ts = chartOptions.timestampFormatter(tx),
+                        ts = chartOptions['timestampFormatter'](tx),
                         tsWidth = context.measureText(ts).width;
                     textUntilX = gx - tsWidth - 2;
                     context.fillStyle = chartOptions.labels.fillStyle;
