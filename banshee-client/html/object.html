@@ -4,6 +4,12 @@
 </div>
 <div class="row">
     <div class="span12">
+        <form class="form-inline">
+            <label class="control-label" for="category">Categories filter : </label>
+            <select id="category" ng-model="category" class="span4" ng-options="object for object in objects[objectId].properties | categoryFilter">
+                <option value="">All</option>
+            </select>
+        </form>
         <table class="table table-hover">
             <thead>
             <tr>
@@ -15,7 +21,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="(key, property) in objects[objectId].properties">
+            <tr ng-repeat="(key, property) in objects[objectId].properties | propertyCategoryFilter:category">
                 <td><span class="label">{{property.category}}</span></td>
                 <td><code>{{property.key}}</code></td>
                 <td><code>{{property.value}}</code></td>
