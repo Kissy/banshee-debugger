@@ -1,12 +1,12 @@
 option java_package = "fr.kissy.banshee.proto";
-option java_outer_classname = "ObjectDTO";
+option java_outer_classname = "DebugEntityDTO";
 option java_generic_services = false;
 
-import "Proto/Debug/ObjectProperty.proto";
+import "Proto/Debug/DebugProperty.proto";
 
-message ObjectProto {
+message DebugEntityProto {
     required string id = 1;
     required string name = 2;
     optional string category = 3 [default = "default"];
-    repeated ObjectPropertyProto objectProperties = 4;
+    repeated DebugPropertyProto properties = 4;
 }

@@ -4,8 +4,8 @@ var _root = dcodeIO.ProtoBuf.newBuilder().create([
         "fields": [
             {
                 "rule": "repeated",
-                "type": "ObjectProto",
-                "name": "objects",
+                "type": "DebugEntityProto",
+                "name": "entities",
                 "id": 1,
                 "options": {}
             }
