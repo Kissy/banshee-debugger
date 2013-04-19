@@ -177,3 +177,8 @@ pip-log.txt
 Target
 target
 
+#############
+## Custom
+#############
+
+!banshee-core/Proto/[Dd]ebug/

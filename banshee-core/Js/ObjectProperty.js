@@ -1,35 +1,21 @@
 var _root = dcodeIO.ProtoBuf.newBuilder().create([
     {
-        "name": "DebugObjectProto",
+        "name": "ObjectPropertyProto",
         "fields": [
-            {
-                "rule": "required",
-                "type": "string",
-                "name": "id",
-                "id": 10,
-                "options": {}
-            },
-            {
-                "rule": "required",
-                "type": "string",
-                "name": "name",
-                "id": 20,
-                "options": {}
-            },
             {
                 "rule": "optional",
                 "type": "string",
                 "name": "category",
-                "id": 30,
+                "id": 1,
                 "options": {
                     "default": "default"
                 }
             },
             {
                 "rule": "repeated",
-                "type": "DebugPropertyProto",
+                "type": "PropertyProto",
                 "name": "properties",
-                "id": 40,
+                "id": 2,
                 "options": {}
             }
         ],

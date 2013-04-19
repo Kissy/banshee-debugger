@@ -1,10 +1,10 @@
 var _root = dcodeIO.ProtoBuf.newBuilder().create([
     {
-        "name": "DebugHolderProto",
+        "name": "DebugProto",
         "fields": [
             {
                 "rule": "repeated",
-                "type": "DebugObjectProto",
+                "type": "ObjectProto",
                 "name": "objects",
                 "id": 1,
                 "options": {}

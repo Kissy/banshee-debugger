@@ -1,0 +1,9 @@
+option java_package = "fr.kissy.banshee.proto";
+option java_outer_classname = "DebugDTO";
+option java_generic_services = false;
+
+import "Proto/Debug/Object.proto";
+
+message DebugProto {
+    repeated ObjectProto objects = 1;
+}
