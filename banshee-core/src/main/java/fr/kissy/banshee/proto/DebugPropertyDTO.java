@@ -10,103 +10,233 @@ public final class DebugPropertyDTO {
   }
   public interface DebugPropertyProtoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // optional string category = 1 [default = "default"];
+    /**
+     * <code>optional string category = 1 [default = "default"];</code>
+     */
     boolean hasCategory();
-    String getCategory();
-    
+    /**
+     * <code>optional string category = 1 [default = "default"];</code>
+     */
+    java.lang.String getCategory();
+    /**
+     * <code>optional string category = 1 [default = "default"];</code>
+     */
+    com.google.protobuf.ByteString
+        getCategoryBytes();
+
     // repeated .PropertyProto properties = 2;
+    /**
+     * <code>repeated .PropertyProto properties = 2;</code>
+     */
     java.util.List<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto> 
         getPropertiesList();
+    /**
+     * <code>repeated .PropertyProto properties = 2;</code>
+     */
     fr.kissy.hellion.proto.common.PropertyDto.PropertyProto getProperties(int index);
+    /**
+     * <code>repeated .PropertyProto properties = 2;</code>
+     */
     int getPropertiesCount();
+    /**
+     * <code>repeated .PropertyProto properties = 2;</code>
+     */
     java.util.List<? extends fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder> 
         getPropertiesOrBuilderList();
+    /**
+     * <code>repeated .PropertyProto properties = 2;</code>
+     */
     fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder getPropertiesOrBuilder(
         int index);
   }
+  /**
+   * Protobuf type {@code DebugPropertyProto}
+   */
   public static final class DebugPropertyProto extends
       com.google.protobuf.GeneratedMessage
       implements DebugPropertyProtoOrBuilder {
     // Use DebugPropertyProto.newBuilder() to construct.
-    private DebugPropertyProto(Builder builder) {
+    private DebugPropertyProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private DebugPropertyProto(boolean noInit) {}
-    
+    private DebugPropertyProto(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final DebugPropertyProto defaultInstance;
     public static DebugPropertyProto getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public DebugPropertyProto getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DebugPropertyProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              category_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                properties_ = new java.util.ArrayList<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              properties_.add(input.readMessage(fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          properties_ = java.util.Collections.unmodifiableList(properties_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return fr.kissy.banshee.proto.DebugPropertyDTO.internal_static_DebugPropertyProto_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return fr.kissy.banshee.proto.DebugPropertyDTO.internal_static_DebugPropertyProto_fieldAccessorTable;
+      return fr.kissy.banshee.proto.DebugPropertyDTO.internal_static_DebugPropertyProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto.class, fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<DebugPropertyProto> PARSER =
+        new com.google.protobuf.AbstractParser<DebugPropertyProto>() {
+      public DebugPropertyProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DebugPropertyProto(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DebugPropertyProto> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
     // optional string category = 1 [default = "default"];
     public static final int CATEGORY_FIELD_NUMBER = 1;
     private java.lang.Object category_;
+    /**
+     * <code>optional string category = 1 [default = "default"];</code>
+     */
     public boolean hasCategory() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getCategory() {
+    /**
+     * <code>optional string category = 1 [default = "default"];</code>
+     */
+    public java.lang.String getCategory() {
       java.lang.Object ref = category_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           category_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getCategoryBytes() {
+    /**
+     * <code>optional string category = 1 [default = "default"];</code>
+     */
+    public com.google.protobuf.ByteString
+        getCategoryBytes() {
       java.lang.Object ref = category_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         category_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
+
     // repeated .PropertyProto properties = 2;
     public static final int PROPERTIES_FIELD_NUMBER = 2;
     private java.util.List<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto> properties_;
+    /**
+     * <code>repeated .PropertyProto properties = 2;</code>
+     */
     public java.util.List<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto> getPropertiesList() {
       return properties_;
     }
+    /**
+     * <code>repeated .PropertyProto properties = 2;</code>
+     */
     public java.util.List<? extends fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder> 
         getPropertiesOrBuilderList() {
       return properties_;
     }
+    /**
+     * <code>repeated .PropertyProto properties = 2;</code>
+     */
     public int getPropertiesCount() {
       return properties_.size();
     }
+    /**
+     * <code>repeated .PropertyProto properties = 2;</code>
+     */
     public fr.kissy.hellion.proto.common.PropertyDto.PropertyProto getProperties(int index) {
       return properties_.get(index);
     }
+    /**
+     * <code>repeated .PropertyProto properties = 2;</code>
+     */
     public fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder getPropertiesOrBuilder(
         int index) {
       return properties_.get(index);
     }
-    
+
     private void initFields() {
       category_ = "default";
       properties_ = java.util.Collections.emptyList();
@@ -115,7 +245,7 @@ public final class DebugPropertyDTO {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       for (int i = 0; i < getPropertiesCount(); i++) {
         if (!getProperties(i).isInitialized()) {
           memoizedIsInitialized = 0;
@@ -125,7 +255,7 @@ public final class DebugPropertyDTO {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -137,12 +267,12 @@ public final class DebugPropertyDTO {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
@@ -156,94 +286,83 @@ public final class DebugPropertyDTO {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code DebugPropertyProto}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProtoOrBuilder {
@@ -251,18 +370,21 @@ public final class DebugPropertyDTO {
           getDescriptor() {
         return fr.kissy.banshee.proto.DebugPropertyDTO.internal_static_DebugPropertyProto_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return fr.kissy.banshee.proto.DebugPropertyDTO.internal_static_DebugPropertyProto_fieldAccessorTable;
+        return fr.kissy.banshee.proto.DebugPropertyDTO.internal_static_DebugPropertyProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto.class, fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto.Builder.class);
       }
-      
+
       // Construct using fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -274,7 +396,7 @@ public final class DebugPropertyDTO {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         category_ = "default";
@@ -287,20 +409,20 @@ public final class DebugPropertyDTO {
         }
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto.getDescriptor();
+        return fr.kissy.banshee.proto.DebugPropertyDTO.internal_static_DebugPropertyProto_descriptor;
       }
-      
+
       public fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto getDefaultInstanceForType() {
         return fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto.getDefaultInstance();
       }
-      
+
       public fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto build() {
         fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto result = buildPartial();
         if (!result.isInitialized()) {
@@ -308,17 +430,7 @@ public final class DebugPropertyDTO {
         }
         return result;
       }
-      
-      private fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto buildPartial() {
         fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto result = new fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto(this);
         int from_bitField0_ = bitField0_;
@@ -340,7 +452,7 @@ public final class DebugPropertyDTO {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto) {
           return mergeFrom((fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto)other);
@@ -349,11 +461,13 @@ public final class DebugPropertyDTO {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto other) {
         if (other == fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto.getDefaultInstance()) return this;
         if (other.hasCategory()) {
-          setCategory(other.getCategory());
+          bitField0_ |= 0x00000001;
+          category_ = other.category_;
+          onChanged();
         }
         if (propertiesBuilder_ == null) {
           if (!other.properties_.isEmpty()) {
@@ -384,7 +498,7 @@ public final class DebugPropertyDTO {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         for (int i = 0; i < getPropertiesCount(); i++) {
           if (!getProperties(i).isInitialized()) {
@@ -394,63 +508,69 @@ public final class DebugPropertyDTO {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              category_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder subBuilder = fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addProperties(subBuilder.buildPartial());
-              break;
-            }
+        fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // optional string category = 1 [default = "default"];
       private java.lang.Object category_ = "default";
+      /**
+       * <code>optional string category = 1 [default = "default"];</code>
+       */
       public boolean hasCategory() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getCategory() {
+      /**
+       * <code>optional string category = 1 [default = "default"];</code>
+       */
+      public java.lang.String getCategory() {
         java.lang.Object ref = category_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           category_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setCategory(String value) {
+      /**
+       * <code>optional string category = 1 [default = "default"];</code>
+       */
+      public com.google.protobuf.ByteString
+          getCategoryBytes() {
+        java.lang.Object ref = category_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          category_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string category = 1 [default = "default"];</code>
+       */
+      public Builder setCategory(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -459,18 +579,29 @@ public final class DebugPropertyDTO {
         onChanged();
         return this;
       }
+      /**
+       * <code>optional string category = 1 [default = "default"];</code>
+       */
       public Builder clearCategory() {
         bitField0_ = (bitField0_ & ~0x00000001);
         category_ = getDefaultInstance().getCategory();
         onChanged();
         return this;
       }
-      void setCategory(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>optional string category = 1 [default = "default"];</code>
+       */
+      public Builder setCategoryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         category_ = value;
         onChanged();
+        return this;
       }
-      
+
       // repeated .PropertyProto properties = 2;
       private java.util.List<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto> properties_ =
         java.util.Collections.emptyList();
@@ -480,10 +611,13 @@ public final class DebugPropertyDTO {
           bitField0_ |= 0x00000002;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           fr.kissy.hellion.proto.common.PropertyDto.PropertyProto, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder, fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder> propertiesBuilder_;
-      
+
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public java.util.List<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto> getPropertiesList() {
         if (propertiesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(properties_);
@@ -491,6 +625,9 @@ public final class DebugPropertyDTO {
           return propertiesBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public int getPropertiesCount() {
         if (propertiesBuilder_ == null) {
           return properties_.size();
@@ -498,6 +635,9 @@ public final class DebugPropertyDTO {
           return propertiesBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public fr.kissy.hellion.proto.common.PropertyDto.PropertyProto getProperties(int index) {
         if (propertiesBuilder_ == null) {
           return properties_.get(index);
@@ -505,6 +645,9 @@ public final class DebugPropertyDTO {
           return propertiesBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public Builder setProperties(
           int index, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto value) {
         if (propertiesBuilder_ == null) {
@@ -519,6 +662,9 @@ public final class DebugPropertyDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public Builder setProperties(
           int index, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder builderForValue) {
         if (propertiesBuilder_ == null) {
@@ -530,6 +676,9 @@ public final class DebugPropertyDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public Builder addProperties(fr.kissy.hellion.proto.common.PropertyDto.PropertyProto value) {
         if (propertiesBuilder_ == null) {
           if (value == null) {
@@ -543,6 +692,9 @@ public final class DebugPropertyDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public Builder addProperties(
           int index, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto value) {
         if (propertiesBuilder_ == null) {
@@ -557,6 +709,9 @@ public final class DebugPropertyDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public Builder addProperties(
           fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder builderForValue) {
         if (propertiesBuilder_ == null) {
@@ -568,6 +723,9 @@ public final class DebugPropertyDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public Builder addProperties(
           int index, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder builderForValue) {
         if (propertiesBuilder_ == null) {
@@ -579,6 +737,9 @@ public final class DebugPropertyDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public Builder addAllProperties(
           java.lang.Iterable<? extends fr.kissy.hellion.proto.common.PropertyDto.PropertyProto> values) {
         if (propertiesBuilder_ == null) {
@@ -590,6 +751,9 @@ public final class DebugPropertyDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public Builder clearProperties() {
         if (propertiesBuilder_ == null) {
           properties_ = java.util.Collections.emptyList();
@@ -600,6 +764,9 @@ public final class DebugPropertyDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public Builder removeProperties(int index) {
         if (propertiesBuilder_ == null) {
           ensurePropertiesIsMutable();
@@ -610,10 +777,16 @@ public final class DebugPropertyDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder getPropertiesBuilder(
           int index) {
         return getPropertiesFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder getPropertiesOrBuilder(
           int index) {
         if (propertiesBuilder_ == null) {
@@ -621,6 +794,9 @@ public final class DebugPropertyDTO {
           return propertiesBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public java.util.List<? extends fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder> 
            getPropertiesOrBuilderList() {
         if (propertiesBuilder_ != null) {
@@ -629,15 +805,24 @@ public final class DebugPropertyDTO {
           return java.util.Collections.unmodifiableList(properties_);
         }
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder addPropertiesBuilder() {
         return getPropertiesFieldBuilder().addBuilder(
             fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.getDefaultInstance());
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder addPropertiesBuilder(
           int index) {
         return getPropertiesFieldBuilder().addBuilder(
             index, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.getDefaultInstance());
       }
+      /**
+       * <code>repeated .PropertyProto properties = 2;</code>
+       */
       public java.util.List<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder> 
            getPropertiesBuilderList() {
         return getPropertiesFieldBuilder().getBuilderList();
@@ -656,24 +841,24 @@ public final class DebugPropertyDTO {
         }
         return propertiesBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:DebugPropertyProto)
     }
-    
+
     static {
       defaultInstance = new DebugPropertyProto(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:DebugPropertyProto)
   }
-  
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_DebugPropertyProto_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_DebugPropertyProto_fieldAccessorTable;
-  
+
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -698,9 +883,7 @@ public final class DebugPropertyDTO {
           internal_static_DebugPropertyProto_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DebugPropertyProto_descriptor,
-              new java.lang.String[] { "Category", "Properties", },
-              fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto.class,
-              fr.kissy.banshee.proto.DebugPropertyDTO.DebugPropertyProto.Builder.class);
+              new java.lang.String[] { "Category", "Properties", });
           return null;
         }
       };
@@ -710,6 +893,6 @@ public final class DebugPropertyDTO {
           fr.kissy.hellion.proto.common.PropertyDto.getDescriptor(),
         }, assigner);
   }
-  
+
   // @@protoc_insertion_point(outer_class_scope)
 }

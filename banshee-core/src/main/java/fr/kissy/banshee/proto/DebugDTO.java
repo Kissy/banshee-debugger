@@ -10,66 +10,169 @@ public final class DebugDTO {
   }
   public interface DebugProtoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-    
+
     // repeated .DebugEntityProto entities = 1;
+    /**
+     * <code>repeated .DebugEntityProto entities = 1;</code>
+     */
     java.util.List<fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto> 
         getEntitiesList();
+    /**
+     * <code>repeated .DebugEntityProto entities = 1;</code>
+     */
     fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto getEntities(int index);
+    /**
+     * <code>repeated .DebugEntityProto entities = 1;</code>
+     */
     int getEntitiesCount();
+    /**
+     * <code>repeated .DebugEntityProto entities = 1;</code>
+     */
     java.util.List<? extends fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProtoOrBuilder> 
         getEntitiesOrBuilderList();
+    /**
+     * <code>repeated .DebugEntityProto entities = 1;</code>
+     */
     fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProtoOrBuilder getEntitiesOrBuilder(
         int index);
   }
+  /**
+   * Protobuf type {@code DebugProto}
+   */
   public static final class DebugProto extends
       com.google.protobuf.GeneratedMessage
       implements DebugProtoOrBuilder {
     // Use DebugProto.newBuilder() to construct.
-    private DebugProto(Builder builder) {
+    private DebugProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private DebugProto(boolean noInit) {}
-    
+    private DebugProto(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
     private static final DebugProto defaultInstance;
     public static DebugProto getDefaultInstance() {
       return defaultInstance;
     }
-    
+
     public DebugProto getDefaultInstanceForType() {
       return defaultInstance;
     }
-    
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DebugProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                entities_ = new java.util.ArrayList<fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              entities_.add(input.readMessage(fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          entities_ = java.util.Collections.unmodifiableList(entities_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return fr.kissy.banshee.proto.DebugDTO.internal_static_DebugProto_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return fr.kissy.banshee.proto.DebugDTO.internal_static_DebugProto_fieldAccessorTable;
+      return fr.kissy.banshee.proto.DebugDTO.internal_static_DebugProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              fr.kissy.banshee.proto.DebugDTO.DebugProto.class, fr.kissy.banshee.proto.DebugDTO.DebugProto.Builder.class);
     }
-    
+
+    public static com.google.protobuf.Parser<DebugProto> PARSER =
+        new com.google.protobuf.AbstractParser<DebugProto>() {
+      public DebugProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DebugProto(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DebugProto> getParserForType() {
+      return PARSER;
+    }
+
     // repeated .DebugEntityProto entities = 1;
     public static final int ENTITIES_FIELD_NUMBER = 1;
     private java.util.List<fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto> entities_;
+    /**
+     * <code>repeated .DebugEntityProto entities = 1;</code>
+     */
     public java.util.List<fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto> getEntitiesList() {
       return entities_;
     }
+    /**
+     * <code>repeated .DebugEntityProto entities = 1;</code>
+     */
     public java.util.List<? extends fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProtoOrBuilder> 
         getEntitiesOrBuilderList() {
       return entities_;
     }
+    /**
+     * <code>repeated .DebugEntityProto entities = 1;</code>
+     */
     public int getEntitiesCount() {
       return entities_.size();
     }
+    /**
+     * <code>repeated .DebugEntityProto entities = 1;</code>
+     */
     public fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto getEntities(int index) {
       return entities_.get(index);
     }
+    /**
+     * <code>repeated .DebugEntityProto entities = 1;</code>
+     */
     public fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProtoOrBuilder getEntitiesOrBuilder(
         int index) {
       return entities_.get(index);
     }
-    
+
     private void initFields() {
       entities_ = java.util.Collections.emptyList();
     }
@@ -77,7 +180,7 @@ public final class DebugDTO {
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
-      
+
       for (int i = 0; i < getEntitiesCount(); i++) {
         if (!getEntities(i).isInitialized()) {
           memoizedIsInitialized = 0;
@@ -87,7 +190,7 @@ public final class DebugDTO {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
@@ -96,12 +199,12 @@ public final class DebugDTO {
       }
       getUnknownFields().writeTo(output);
     }
-    
+
     private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
       int size = memoizedSerializedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       for (int i = 0; i < entities_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -111,94 +214,83 @@ public final class DebugDTO {
       memoizedSerializedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
     @java.lang.Override
     protected java.lang.Object writeReplace()
         throws java.io.ObjectStreamException {
       return super.writeReplace();
     }
-    
+
     public static fr.kissy.banshee.proto.DebugDTO.DebugProto parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static fr.kissy.banshee.proto.DebugDTO.DebugProto parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static fr.kissy.banshee.proto.DebugDTO.DebugProto parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static fr.kissy.banshee.proto.DebugDTO.DebugProto parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static fr.kissy.banshee.proto.DebugDTO.DebugProto parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static fr.kissy.banshee.proto.DebugDTO.DebugProto parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static fr.kissy.banshee.proto.DebugDTO.DebugProto parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static fr.kissy.banshee.proto.DebugDTO.DebugProto parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static fr.kissy.banshee.proto.DebugDTO.DebugProto parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static fr.kissy.banshee.proto.DebugDTO.DebugProto parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
+
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder(fr.kissy.banshee.proto.DebugDTO.DebugProto prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
-    
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code DebugProto}
+     */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements fr.kissy.banshee.proto.DebugDTO.DebugProtoOrBuilder {
@@ -206,18 +298,21 @@ public final class DebugDTO {
           getDescriptor() {
         return fr.kissy.banshee.proto.DebugDTO.internal_static_DebugProto_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return fr.kissy.banshee.proto.DebugDTO.internal_static_DebugProto_fieldAccessorTable;
+        return fr.kissy.banshee.proto.DebugDTO.internal_static_DebugProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                fr.kissy.banshee.proto.DebugDTO.DebugProto.class, fr.kissy.banshee.proto.DebugDTO.DebugProto.Builder.class);
       }
-      
+
       // Construct using fr.kissy.banshee.proto.DebugDTO.DebugProto.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -229,7 +324,7 @@ public final class DebugDTO {
       private static Builder create() {
         return new Builder();
       }
-      
+
       public Builder clear() {
         super.clear();
         if (entitiesBuilder_ == null) {
@@ -240,20 +335,20 @@ public final class DebugDTO {
         }
         return this;
       }
-      
+
       public Builder clone() {
         return create().mergeFrom(buildPartial());
       }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return fr.kissy.banshee.proto.DebugDTO.DebugProto.getDescriptor();
+        return fr.kissy.banshee.proto.DebugDTO.internal_static_DebugProto_descriptor;
       }
-      
+
       public fr.kissy.banshee.proto.DebugDTO.DebugProto getDefaultInstanceForType() {
         return fr.kissy.banshee.proto.DebugDTO.DebugProto.getDefaultInstance();
       }
-      
+
       public fr.kissy.banshee.proto.DebugDTO.DebugProto build() {
         fr.kissy.banshee.proto.DebugDTO.DebugProto result = buildPartial();
         if (!result.isInitialized()) {
@@ -261,17 +356,7 @@ public final class DebugDTO {
         }
         return result;
       }
-      
-      private fr.kissy.banshee.proto.DebugDTO.DebugProto buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        fr.kissy.banshee.proto.DebugDTO.DebugProto result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public fr.kissy.banshee.proto.DebugDTO.DebugProto buildPartial() {
         fr.kissy.banshee.proto.DebugDTO.DebugProto result = new fr.kissy.banshee.proto.DebugDTO.DebugProto(this);
         int from_bitField0_ = bitField0_;
@@ -287,7 +372,7 @@ public final class DebugDTO {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof fr.kissy.banshee.proto.DebugDTO.DebugProto) {
           return mergeFrom((fr.kissy.banshee.proto.DebugDTO.DebugProto)other);
@@ -296,7 +381,7 @@ public final class DebugDTO {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(fr.kissy.banshee.proto.DebugDTO.DebugProto other) {
         if (other == fr.kissy.banshee.proto.DebugDTO.DebugProto.getDefaultInstance()) return this;
         if (entitiesBuilder_ == null) {
@@ -328,7 +413,7 @@ public final class DebugDTO {
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
-      
+
       public final boolean isInitialized() {
         for (int i = 0; i < getEntitiesCount(); i++) {
           if (!getEntities(i).isInitialized()) {
@@ -338,42 +423,26 @@ public final class DebugDTO {
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.Builder subBuilder = fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addEntities(subBuilder.buildPartial());
-              break;
-            }
+        fr.kissy.banshee.proto.DebugDTO.DebugProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (fr.kissy.banshee.proto.DebugDTO.DebugProto) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
+
       // repeated .DebugEntityProto entities = 1;
       private java.util.List<fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto> entities_ =
         java.util.Collections.emptyList();
@@ -383,10 +452,13 @@ public final class DebugDTO {
           bitField0_ |= 0x00000001;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto, fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.Builder, fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProtoOrBuilder> entitiesBuilder_;
-      
+
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public java.util.List<fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto> getEntitiesList() {
         if (entitiesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(entities_);
@@ -394,6 +466,9 @@ public final class DebugDTO {
           return entitiesBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public int getEntitiesCount() {
         if (entitiesBuilder_ == null) {
           return entities_.size();
@@ -401,6 +476,9 @@ public final class DebugDTO {
           return entitiesBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto getEntities(int index) {
         if (entitiesBuilder_ == null) {
           return entities_.get(index);
@@ -408,6 +486,9 @@ public final class DebugDTO {
           return entitiesBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public Builder setEntities(
           int index, fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto value) {
         if (entitiesBuilder_ == null) {
@@ -422,6 +503,9 @@ public final class DebugDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public Builder setEntities(
           int index, fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.Builder builderForValue) {
         if (entitiesBuilder_ == null) {
@@ -433,6 +517,9 @@ public final class DebugDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public Builder addEntities(fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto value) {
         if (entitiesBuilder_ == null) {
           if (value == null) {
@@ -446,6 +533,9 @@ public final class DebugDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public Builder addEntities(
           int index, fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto value) {
         if (entitiesBuilder_ == null) {
@@ -460,6 +550,9 @@ public final class DebugDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public Builder addEntities(
           fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.Builder builderForValue) {
         if (entitiesBuilder_ == null) {
@@ -471,6 +564,9 @@ public final class DebugDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public Builder addEntities(
           int index, fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.Builder builderForValue) {
         if (entitiesBuilder_ == null) {
@@ -482,6 +578,9 @@ public final class DebugDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public Builder addAllEntities(
           java.lang.Iterable<? extends fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto> values) {
         if (entitiesBuilder_ == null) {
@@ -493,6 +592,9 @@ public final class DebugDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public Builder clearEntities() {
         if (entitiesBuilder_ == null) {
           entities_ = java.util.Collections.emptyList();
@@ -503,6 +605,9 @@ public final class DebugDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public Builder removeEntities(int index) {
         if (entitiesBuilder_ == null) {
           ensureEntitiesIsMutable();
@@ -513,10 +618,16 @@ public final class DebugDTO {
         }
         return this;
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.Builder getEntitiesBuilder(
           int index) {
         return getEntitiesFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProtoOrBuilder getEntitiesOrBuilder(
           int index) {
         if (entitiesBuilder_ == null) {
@@ -524,6 +635,9 @@ public final class DebugDTO {
           return entitiesBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public java.util.List<? extends fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProtoOrBuilder> 
            getEntitiesOrBuilderList() {
         if (entitiesBuilder_ != null) {
@@ -532,15 +646,24 @@ public final class DebugDTO {
           return java.util.Collections.unmodifiableList(entities_);
         }
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.Builder addEntitiesBuilder() {
         return getEntitiesFieldBuilder().addBuilder(
             fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.getDefaultInstance());
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.Builder addEntitiesBuilder(
           int index) {
         return getEntitiesFieldBuilder().addBuilder(
             index, fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.getDefaultInstance());
       }
+      /**
+       * <code>repeated .DebugEntityProto entities = 1;</code>
+       */
       public java.util.List<fr.kissy.banshee.proto.DebugEntityDTO.DebugEntityProto.Builder> 
            getEntitiesBuilderList() {
         return getEntitiesFieldBuilder().getBuilderList();
@@ -559,24 +682,24 @@ public final class DebugDTO {
         }
         return entitiesBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:DebugProto)
     }
-    
+
     static {
       defaultInstance = new DebugProto(true);
       defaultInstance.initFields();
     }
-    
+
     // @@protoc_insertion_point(class_scope:DebugProto)
   }
-  
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_DebugProto_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_DebugProto_fieldAccessorTable;
-  
+
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -600,9 +723,7 @@ public final class DebugDTO {
           internal_static_DebugProto_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_DebugProto_descriptor,
-              new java.lang.String[] { "Entities", },
-              fr.kissy.banshee.proto.DebugDTO.DebugProto.class,
-              fr.kissy.banshee.proto.DebugDTO.DebugProto.Builder.class);
+              new java.lang.String[] { "Entities", });
           return null;
         }
       };
@@ -612,6 +733,6 @@ public final class DebugDTO {
           fr.kissy.banshee.proto.DebugEntityDTO.getDescriptor(),
         }, assigner);
   }
-  
+
   // @@protoc_insertion_point(outer_class_scope)
 }

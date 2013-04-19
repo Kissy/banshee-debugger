@@ -76,6 +76,7 @@ angular.module('Banshee.Service', [])
                         lastUpdate: 0
                     };
                 }
+                console.log(property.value);
                 this.properties[propertyId].value = property.value;
                 this.properties[propertyId].category = this.category;
                 this.properties[propertyId].updatesPerSeconds = Math.round(1000 / (new Date().getTime() - this.properties[propertyId].lastUpdate));
