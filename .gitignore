@@ -181,4 +181,4 @@ target
 ## Custom
 #############
 
-!banshee-core/Proto/[Dd]ebug/
+!banshee-core/src/main/protobuf/Proto/[Dd]ebug/
