@@ -6,7 +6,7 @@
     <div class="span12">
         <form class="form-inline">
             <label class="control-label" for="category">Categories filter : </label>
-            <select id="category" ng-model="category" class="span4" ng-options="object for object in objects[objectId].properties | categoryFilter">
+            <select id="category" ng-model="category" ng-options="object for object in objects[objectId].properties | categoryFilter">
                 <option value="">All</option>
             </select>
         </form>
@@ -23,11 +23,11 @@
             <tbody>
             <tr ng-repeat="(key, property) in objects[objectId].properties | propertyCategoryFilter:category">
                 <td><span class="label">{{property.category}}</span></td>
-                <td><code>{{property.key}}</code></td>
+                <td><code>{{property.name}}</code></td>
                 <td><code>{{property.value}}</code></td>
                 <td><span class="badge">{{property.updatesPerSeconds}}</span></td>
                 <td class="force-text-center">
-                    <input type="checkbox" value="{{property.key}}" ng-checked="property.plot" ng-model="property.plot">
+                    <input type="checkbox" value="{{property.name}}" ng-checked="property.plot" ng-model="property.plot">
                 </td>
             </tr>
             <tr ng-show="objects[objectId].numberOfProperties == 0">

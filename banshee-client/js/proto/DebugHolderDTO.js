@@ -1,29 +1,20 @@
-var debugHolderProtoBuilder = dcodeIO.ProtoBuf.newBuilder("DebugHolderDTO").create([
+var debugProtoBuilder = dcodeIO.ProtoBuf.newBuilder("DebugDTO").create([
     {
-        "name": "DebugPropertyProto",
+        "name": "PropertyProto",
         "fields": [
             {
                 "rule": "required",
                 "type": "string",
-                "name": "key",
-                "id": 20,
+                "name": "name",
+                "id": 1,
                 "options": {}
             },
             {
-                "rule": "required",
+                "rule": "repeated",
                 "type": "string",
                 "name": "value",
-                "id": 21,
+                "id": 2,
                 "options": {}
-            },
-            {
-                "rule": "optional",
-                "type": "string",
-                "name": "category",
-                "id": 22,
-                "options": {
-                    "default": "default"
-                }
             }
         ],
         "enums": [],
@@ -31,27 +22,51 @@ var debugHolderProtoBuilder = dcodeIO.ProtoBuf.newBuilder("DebugHolderDTO").crea
         "options": {}
     },
     {
-        "name": "DebugObjectProto",
+        "name": "DebugPropertyProto",
+        "fields": [
+            {
+                "rule": "optional",
+                "type": "string",
+                "name": "category",
+                "id": 1,
+                "options": {
+                    "default": "default"
+                }
+            },
+            {
+                "rule": "repeated",
+                "type": "PropertyProto",
+                "name": "properties",
+                "id": 2,
+                "options": {}
+            }
+        ],
+        "enums": [],
+        "messages": [],
+        "options": {}
+    },
+    {
+        "name": "DebugEntityProto",
         "fields": [
             {
                 "rule": "required",
                 "type": "string",
                 "name": "id",
-                "id": 10,
+                "id": 1,
                 "options": {}
             },
             {
                 "rule": "required",
                 "type": "string",
                 "name": "name",
-                "id": 20,
+                "id": 2,
                 "options": {}
             },
             {
                 "rule": "optional",
                 "type": "string",
                 "name": "category",
-                "id": 30,
+                "id": 3,
                 "options": {
                     "default": "default"
                 }
@@ -60,7 +75,7 @@ var debugHolderProtoBuilder = dcodeIO.ProtoBuf.newBuilder("DebugHolderDTO").crea
                 "rule": "repeated",
                 "type": "DebugPropertyProto",
                 "name": "properties",
-                "id": 40,
+                "id": 4,
                 "options": {}
             }
         ],
@@ -69,12 +84,12 @@ var debugHolderProtoBuilder = dcodeIO.ProtoBuf.newBuilder("DebugHolderDTO").crea
         "options": {}
     },
     {
-        "name": "DebugHolderProto",
+        "name": "DebugProto",
         "fields": [
             {
                 "rule": "repeated",
-                "type": "DebugObjectProto",
-                "name": "objects",
+                "type": "DebugEntityProto",
+                "name": "entities",
                 "id": 1,
                 "options": {}
             }
@@ -83,4 +98,4 @@ var debugHolderProtoBuilder = dcodeIO.ProtoBuf.newBuilder("DebugHolderDTO").crea
         "messages": [],
         "options": {}
     }
-]).build("DebugHolderDTO");
+]).build("DebugDTO");

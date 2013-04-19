@@ -18,12 +18,6 @@ angular.module('Banshee.Service', [])
             objects: {},
             init: function () {
                 var self = this;
-                WebSocketService.on('onopen', function () {
-                    console.log("connected");
-                });
-                WebSocketService.on('onerror', function (error) {
-                    console.log(error);
-                });
                 WebSocketService.on('onmessage', function (event) {
                     var reader = new FileReader();
                     reader['onload'] = function (data) {
@@ -36,14 +30,14 @@ angular.module('Banshee.Service', [])
             },
             updateData: function(result) {
                 var byteBuffer = dcodeIO.ByteBuffer.wrap(result);
-                var debugHolderDTO = debugHolderProtoBuilder['DebugHolderProto'].decode(byteBuffer);
-                angular.forEach(debugHolderDTO.objects, function (object) {
-                    this.updateObject(object);
-                }, this);
+                var debugDTO = debugProtoBuilder['DebugProto'].decode(byteBuffer);
+                angular.forEach(debugDTO.entities, this.updateEntity, this);
             },
-            updateObject: function (object) {
-                if (!this.objects[object['id']]) {
-                    this.objects[object['id']] = {
+            updateEntity: function (entity) {
+                var entityId = entity['id'];
+                if (!this.objects[entityId]) {
+                    this.objects[entityId] = {
+                        id: entityId,
                         properties: {},
                         numberOfProperties: 0,
                         updatesPerSeconds: 0,
@@ -51,33 +45,41 @@ angular.module('Banshee.Service', [])
                     };
                 }
 
-                var currentObject = this.objects[object['id']];
-
-                // All properties
-                angular.forEach(object, function(value, key) {
-                   if (key == 'properties') {
-                       return;
-                   }
-                   this[key] = value;
-                }, currentObject);
+                var currentObject = this.objects[entityId];
+                currentObject.name = entity.name;
+                currentObject.category = entity.category;
 
                 // Entity properties
-                angular.forEach(object['properties'], function (property) {
-                    var propertyId = property['category'] + '|' + property['key'];
-                    if (!this[propertyId]) {
-                        this[propertyId] = property;
-                        this[propertyId].updatesPerSeconds = 0;
-                        this[propertyId].lastUpdate = 0;
-                    }
-                    this[propertyId]['value'] = property['value'];
-                    this[propertyId].updatesPerSeconds = Math.round(1000 / (new Date().getTime() - this[propertyId].lastUpdate));
-                    this[propertyId].lastUpdate = new Date().getTime();
-                }, currentObject['properties']);
+                angular.forEach(entity.properties, this.updateEntityProperties, {
+                    self: this,
+                    properties: currentObject.properties
+                });
 
                 // Additional properties
-                currentObject.numberOfProperties = object['properties'].length;
+                currentObject.numberOfProperties = entity.properties.length;
                 currentObject.updatesPerSeconds = Math.round(1000 / (new Date().getTime() - currentObject.lastUpdate));
                 currentObject.lastUpdate = new Date().getTime();
+            },
+            updateEntityProperties: function (propertyGroup) {
+                angular.forEach(propertyGroup.properties, this.self.updateEntityPropertyCategory, {
+                    self: this.self,
+                    category: propertyGroup.category,
+                    properties: this.properties
+                });
+            },
+            updateEntityPropertyCategory: function(property) {
+                var propertyId = this.category + '|' + property.name;
+                if (!this.properties[propertyId]) {
+                    this.properties[propertyId] = {
+                        name: property.name,
+                        updatesPerSeconds: 0,
+                        lastUpdate: 0
+                    };
+                }
+                this.properties[propertyId].value = property.value;
+                this.properties[propertyId].category = this.category;
+                this.properties[propertyId].updatesPerSeconds = Math.round(1000 / (new Date().getTime() - this.properties[propertyId].lastUpdate));
+                this.properties[propertyId].lastUpdate = new Date().getTime();
             }
         }
     });
