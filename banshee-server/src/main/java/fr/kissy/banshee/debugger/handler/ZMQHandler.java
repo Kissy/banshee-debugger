@@ -2,8 +2,6 @@ package fr.kissy.banshee.debugger.handler;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import fr.kissy.banshee.debugger.service.ConnectionService;
-import fr.kissy.banshee.proto.DebugHolderDTO;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.zeromq.ZLoop;
 import org.zeromq.ZMQ;
