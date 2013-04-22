@@ -6,4 +6,8 @@ angular.module('Banshee.Controller', [])
     .controller('ObjectController', function($scope, $routeParams, DataService) {
         $scope.objectId = $routeParams['objectId'];
         $scope.objects = DataService.objects;
+    })
+    .controller('LogsController', function($scope, DataService) {
+        $scope.logs = DataService.logs;
     });
+

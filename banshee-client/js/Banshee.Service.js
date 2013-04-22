@@ -16,6 +16,7 @@ angular.module('Banshee.Service', [])
     .factory('DataService', function($rootScope, WebSocketService) {
         return {
             objects: {},
+            logs: {},
             init: function () {
                 var self = this;
                 WebSocketService.on('onmessage', function (event) {

@@ -1,0 +1,21 @@
+<h1>Logs</h1>
+<div class="row">
+    <div class="span12">
+        <table class="table"  ng-controller="LogsController">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="log in logs">
+                <td>{{log.date}}</td>
+                <td>{{log.category}}</td>
+                <td>{{log.message}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
