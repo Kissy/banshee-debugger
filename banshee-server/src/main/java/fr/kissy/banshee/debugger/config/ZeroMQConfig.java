@@ -1,6 +1,7 @@
 package fr.kissy.banshee.debugger.config;
 
 import fr.kissy.banshee.debugger.handler.ZMQHandler;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.zeromq.ZContext;
@@ -15,6 +16,11 @@ import java.util.concurrent.Executors;
  */
 @Configuration
 public class ZeroMQConfig {
+    @Value("${server.zmq.host}")
+    private String zmqServerHost;
+    @Value("${server.zmq.port}")
+    private String zmqServerPort;
+
     @Bean
     public ZContext zContext() {
         return new ZContext();
@@ -23,7 +29,7 @@ public class ZeroMQConfig {
     @Bean
     public ZMQ.Socket zmqSocket() {
         ZMQ.Socket socket = zContext().createSocket(ZMQ.PULL);
-        socket.bind("tcp://*:5555");
+        socket.bind("tcp://" + zmqServerHost + ":" + zmqServerPort);
         return socket;
     }
 

@@ -1,6 +1,7 @@
 package fr.kissy.banshee.debugger.service;
 
 import fr.kissy.banshee.debugger.socket.BansheeWebSocket;
+import org.eclipse.jetty.websocket.WebSocket;
 
 import java.io.IOException;
 import java.util.Set;

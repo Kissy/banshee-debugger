@@ -1,6 +1,6 @@
 angular.module('Banshee.Service', [])
     .factory('WebSocketService', ['$rootScope', function ($rootScope) {
-        var socket = new WebSocket("ws://localhost:8080/banshee/ws");
+        var socket = new WebSocket("ws://kissy.synology.me:26900/banshee/ws");
         return {
             on: function (eventName, callback) {
                 socket[eventName] = function () {
