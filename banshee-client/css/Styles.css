@@ -14,3 +14,8 @@ table input {
 .force-text-center {
     text-align: center !important;
 }
+.caption h3 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
