@@ -4,24 +4,30 @@ angular.module('Banshee.Controller', [])
     .controller('ObjectsController', function($scope, $timeout, DataService) {
         $scope.objects = DataService.objects;
         $scope.localTimer = getLocalTimerNormalized();
-        $timeout(function() {
+        var timeoutPromise = $timeout(function() {
             $scope.localTimer += UPDATE_STEP;
             DataService.calculateObjectsUpdatesPerSeconds();
             // Schedule for next second
-            $timeout(arguments.callee, UPDATE_STEP + $scope.localTimer - new Date().getTime());
+            timeoutPromise = $timeout(arguments.callee, UPDATE_STEP + $scope.localTimer - new Date().getTime());
         }, UPDATE_STEP + $scope.localTimer - new Date().getTime());
+        $scope.$on('$routeChangeStart', function (scope, next, current) {
+            $timeout.cancel(timeoutPromise);
+        });
     })
     .controller('ObjectController', function($scope, $timeout, $routeParams, DataService) {
         $scope.objectId = $routeParams['objectId'];
         $scope.objects = DataService.objects;
         $scope.series = {};
         $scope.localTimer = getLocalTimerNormalized();
-        $timeout(function() {
+        var timeoutPromise = $timeout(function() {
             $scope.localTimer += UPDATE_STEP;
             DataService.calculatePropertiesUpdatesPerSeconds($scope.objectId);
             // Schedule for next second
-            $timeout(arguments.callee, UPDATE_STEP + $scope.localTimer - new Date().getTime());
+            timeoutPromise = $timeout(arguments.callee, UPDATE_STEP + $scope.localTimer - new Date().getTime());
         }, UPDATE_STEP + $scope.localTimer - new Date().getTime());
+        $scope.$on('$routeChangeStart', function (scope, next, current) {
+            $timeout.cancel(timeoutPromise);
+        });
     })
     .controller('LogsController', function($scope, DataService) {
         $scope.logs = DataService.logs;
