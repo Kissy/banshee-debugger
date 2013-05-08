@@ -29,20 +29,24 @@ angular.module('Banshee.Directive', [])
                     if (!newValue) {
                         return;
                     }
-                    angular.forEach(newValue, function(property, key) {
-                        if (property['plot'] && !this[key]) {
-                            this[key] = new TimeSeries();
-                            chart.addTimeSeries(this[key], {
-                                lineWidth: 1,
-                                strokeStyle: '#0088cc',
-                                fillStyle: 'rgba(221,221,221,0.5)'
-                            });
-                        } else if (!property['plot'] && this[key]) {
-                            chart.removeTimeSeries(this[key]);
-                            delete this[key];
-                        }
-                        if (this[key]) {
-                            this[key].append(property['lastUpdate'], property['value'], false);
+                    angular.forEach(newValue, function(property, property_key) {
+                        for (var i = 0; i < property.value.length; i++) {
+                            var key = property_key + '_' + i;
+                            if (property.plot[i] && !this[key]) {
+                                this[key] = new TimeSeries();
+                                chart.addTimeSeries(this[key], {
+                                    lineWidth: 1,
+                                    strokeStyle: '#0088cc',
+                                    fillStyle: 'rgba(221,221,221,0.5)'
+                                });
+                            } else if (!property.plot[i] && this[key]) {
+                                chart.removeTimeSeries(this[key]);
+                                delete this[key];
+                                return;
+                            }
+                            if (this[key]) {
+                                this[key].append(new Date().getTime(), property.value[i], false);
+                            }
                         }
                     }, series);
                 }, true);

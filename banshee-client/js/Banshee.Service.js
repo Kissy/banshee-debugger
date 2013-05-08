@@ -79,11 +79,17 @@ angular.module('Banshee.Service', [])
                         name: property.name,
                         updatesPerSeconds: 0,
                         currentUpdate: 0,
-                        lastUpdates: {}
+                        lastUpdates: {},
+                        plot: {}
                     };
+                    var i;
                     // Init last updates
-                    for (var i = 0; i < LAST_UPDATES_COUNT; i++) {
+                    for (i = 0; i < LAST_UPDATES_COUNT; i++) {
                         this.properties[propertyId].lastUpdates[i] = 0;
+                    }
+                    // Init plot
+                    for (i = 0; i < property.value.length; i++) {
+                        this.properties[propertyId].plot[i] = false;
                     }
                 }
                 this.properties[propertyId].value = property.value;
@@ -100,10 +106,14 @@ angular.module('Banshee.Service', [])
                 angular.forEach(this.objects[objectId].properties, this.calculateUpdatesPerSeconds, this);
             },
             calculateUpdatesPerSeconds: function(object) {
-                object.updatesPerSeconds = 0;
+                var newUpdatesPerSeconds = 0;
                 for (var i = 0; i < LAST_UPDATES_COUNT; i++) {
-                    object.updatesPerSeconds += object.lastUpdates[object.currentUpdate];
+                    newUpdatesPerSeconds += object.lastUpdates[object.currentUpdate];
                 }
+                if (newUpdatesPerSeconds == object.updatesPerSeconds) {
+                    return;
+                }
+                object.updatesPerSeconds = newUpdatesPerSeconds;
                 object.lastUpdates[object.currentUpdate] = 0;
                 if (++object.currentUpdate >= LAST_UPDATES_COUNT) {
                     object.currentUpdate = 0;

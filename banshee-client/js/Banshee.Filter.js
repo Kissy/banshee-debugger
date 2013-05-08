@@ -8,7 +8,7 @@ angular.module('Banshee.Filter', [])
             return Object.keys(result);
         };
     })
-    .filter('propertyCategoryFilter', function(){
+    .filter('propertyCategoryFilter', function() {
         return function(properties, category){
             if (!category) {
                 return properties;
