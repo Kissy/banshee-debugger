@@ -6,16 +6,17 @@ angular.module('Banshee.Directive', [])
             scope: {
                 width: '@canvasWidth',
                 height: '@canvasHeight',
+                series: '=',
                 propertiesValue: '='
             },
             template: '<canvas width="{{width}}" height="{{height}}" ></canvas>',
             link: function postLink($scope, iElement, iAttrs) {
-                var series = {};
+                var styles = Object.keys(CHART_LINE_COLORS);
                 var chart = new SmoothieChart({
+                        maxValueScale: 1.1,
                         scaleSmoothing: 1,
-                        interpolation:'linear',
                         grid: {
-                            sharpLines:true,
+                            sharpLines: true,
                             fillStyle: '#f5f5f5',
                             strokeStyle: '#e3e3e3',
                             verticalSections: 6
@@ -24,7 +25,7 @@ angular.module('Banshee.Directive', [])
                             fillStyle:'#333333'
                         }
                     });
-                chart.streamTo(iElement[0], 0);
+                chart.streamTo(iElement[0], UPDATE_STEP);
                 $scope.$watch('propertiesValue', function(newValue, oldValue) {
                     if (!newValue) {
                         return;
@@ -32,23 +33,32 @@ angular.module('Banshee.Directive', [])
                     angular.forEach(newValue, function(property, property_key) {
                         for (var i = 0; i < property.value.length; i++) {
                             var key = property_key + '_' + i;
-                            if (property.plot[i] && !this[key]) {
-                                this[key] = new TimeSeries();
-                                chart.addTimeSeries(this[key], {
+                            if (property.plot[i].checked && !this.series[key]) {
+                                if (Object.keys(this.series).length >= 6) {
+                                    return;
+                                }
+
+                                property.plot[i].style = this.styles.pop();
+                                this.series[key] = new TimeSeries();
+                                chart.addTimeSeries(this.series[key], {
                                     lineWidth: 1,
-                                    strokeStyle: '#0088cc',
-                                    fillStyle: 'rgba(221,221,221,0.5)'
+                                    strokeStyle: CHART_LINE_COLORS[property.plot[i].style]
                                 });
-                            } else if (!property.plot[i] && this[key]) {
-                                chart.removeTimeSeries(this[key]);
-                                delete this[key];
+                            } else if (!property.plot[i].checked && this.series[key]) {
+                                this.styles.push(property.plot[i].style);
+                                property.plot[i].style = null;
+                                chart.removeTimeSeries(this.series[key]);
+                                delete this.series[key];
                                 return;
                             }
-                            if (this[key]) {
-                                this[key].append(new Date().getTime(), property.value[i], false);
+                            if (this.series[key]) {
+                                this.series[key].append(new Date().getTime(), property.value[i], false);
                             }
                         }
-                    }, series);
+                    }, {
+                        series: $scope.series,
+                        styles: styles
+                    });
                 }, true);
                 $scope.$on('$routeChangeStart', function (scope, next, current) {
                     chart.stop();

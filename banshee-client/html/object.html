@@ -1,6 +1,6 @@
 <h1>{{objects[objectId].name}} <small>{{objects[objectId].id}}</small></h1>
 <div class="well">
-    <property-chart canvas-width="900" canvas-height="200" properties-value="objects[objectId].properties"></property-chart>
+    <property-chart canvas-width="900" canvas-height="200" series="series" properties-value="objects[objectId].properties"></property-chart>
 </div>
 <div class="row">
     <div class="span12">
@@ -25,12 +25,13 @@
                 <td><span class="label">{{property.category}}</span></td>
                 <td><code>{{property.name}}</code></td>
                 <td>
-                    [<span ng-repeat="value in property.value"><code>{{value}}</code><span ng-show="!$last">,&nbsp;</span></span>]
+                    [<span ng-repeat="value in property.value"><code class="{{property.plot[$index].style}}">{{value}}</code><span ng-show="!$last">,&nbsp;</span></span>]
                 </td>
                 <td><span class="badge">{{property.updatesPerSeconds}}</span></td>
                 <td class="force-text-center">
                     [<span ng-repeat="value in property.value">
-                        <input type="checkbox" value="{{$index}}" ng-checked="property.plot[$index]" ng-model="property.plot[$index]">
+                        <input type="checkbox" value="{{$index}}" ng-model="property.plot[$index].checked"
+                               ng-disabled="(series | objectLength) >= 6 && !property.plot[$index].checked">
                     <span ng-show="!$last">,&nbsp;</span></span>]
                 </td>
             </tr>

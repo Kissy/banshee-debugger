@@ -22,4 +22,9 @@ angular.module('Banshee.Filter', [])
             }, result);
             return result;
         };
+    })
+    .filter('objectLength', function() {
+        return function(series){
+            return Object.keys(series).length;
+        };
     });

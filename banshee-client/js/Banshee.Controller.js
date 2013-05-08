@@ -14,6 +14,7 @@ angular.module('Banshee.Controller', [])
     .controller('ObjectController', function($scope, $timeout, $routeParams, DataService) {
         $scope.objectId = $routeParams['objectId'];
         $scope.objects = DataService.objects;
+        $scope.series = {};
         $scope.localTimer = getLocalTimerNormalized();
         $timeout(function() {
             $scope.localTimer += UPDATE_STEP;
