@@ -11,7 +11,7 @@ angular.module('Banshee.Directive', [])
             },
             template: '<canvas width="{{width}}" height="{{height}}" ></canvas>',
             link: function postLink($scope, iElement, iAttrs) {
-                var styles = Object.keys(CHART_LINE_COLORS);
+                var styles = Object.keys(AVAILABLE_COLORS);
                 var chart = new SmoothieChart({
                         maxValueScale: 1.1,
                         scaleSmoothing: 1,
@@ -42,7 +42,7 @@ angular.module('Banshee.Directive', [])
                                 this.series[key] = new TimeSeries();
                                 chart.addTimeSeries(this.series[key], {
                                     lineWidth: 1,
-                                    strokeStyle: CHART_LINE_COLORS[property.plot[i].style]
+                                    strokeStyle: AVAILABLE_COLORS[property.plot[i].style]
                                 });
                             } else if (!property.plot[i].checked && this.series[key]) {
                                 this.styles.push(property.plot[i].style);

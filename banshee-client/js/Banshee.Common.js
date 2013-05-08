@@ -1,6 +1,6 @@
 var UPDATE_STEP = 200;
 var LAST_UPDATES_COUNT = 1000 / UPDATE_STEP;
-var CHART_LINE_COLORS = {
+var AVAILABLE_COLORS = {
     'label': '#999999',
     'label label-success': '#468847',
     'label label-warning': '#f89406',
