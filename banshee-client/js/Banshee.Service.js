@@ -42,8 +42,13 @@ angular.module('Banshee.Service', [])
                         properties: {},
                         numberOfProperties: 0,
                         updatesPerSeconds: 0,
-                        lastUpdate: 0
+                        currentUpdate: 0,
+                        lastUpdates: {}
                     };
+                    // Init last updates
+                    for (var i = 0; i < LAST_UPDATES_COUNT; i++) {
+                        this.objects[entityId].lastUpdates[i] = 0;
+                    }
                 }
 
                 var currentObject = this.objects[entityId];
@@ -58,8 +63,7 @@ angular.module('Banshee.Service', [])
 
                 // Additional properties
                 currentObject.numberOfProperties = entity.properties.length;
-                currentObject.updatesPerSeconds = Math.round(1000 / (new Date().getTime() - currentObject.lastUpdate));
-                currentObject.lastUpdate = new Date().getTime();
+                currentObject.lastUpdates[currentObject.currentUpdate]++;
             },
             updateEntityProperties: function (propertyGroup) {
                 angular.forEach(propertyGroup.properties, this.self.updateEntityPropertyCategory, {
@@ -74,14 +78,36 @@ angular.module('Banshee.Service', [])
                     this.properties[propertyId] = {
                         name: property.name,
                         updatesPerSeconds: 0,
-                        lastUpdate: 0
+                        currentUpdate: 0,
+                        lastUpdates: {}
                     };
+                    // Init last updates
+                    for (var i = 0; i < LAST_UPDATES_COUNT; i++) {
+                        this.properties[propertyId].lastUpdates[i] = 0;
+                    }
                 }
-                console.log(property.value);
                 this.properties[propertyId].value = property.value;
                 this.properties[propertyId].category = this.category;
-                this.properties[propertyId].updatesPerSeconds = Math.round(1000 / (new Date().getTime() - this.properties[propertyId].lastUpdate));
-                this.properties[propertyId].lastUpdate = new Date().getTime();
+                this.properties[propertyId].lastUpdates[this.properties[propertyId].currentUpdate]++;
+            },
+            calculateObjectsUpdatesPerSeconds: function() {
+                angular.forEach(this.objects, this.calculateUpdatesPerSeconds, this);
+            },
+            calculatePropertiesUpdatesPerSeconds: function(objectId) {
+                if (!this.objects[objectId]) {
+                    return;
+                }
+                angular.forEach(this.objects[objectId].properties, this.calculateUpdatesPerSeconds, this);
+            },
+            calculateUpdatesPerSeconds: function(object) {
+                object.updatesPerSeconds = 0;
+                for (var i = 0; i < LAST_UPDATES_COUNT; i++) {
+                    object.updatesPerSeconds += object.lastUpdates[object.currentUpdate];
+                }
+                object.lastUpdates[object.currentUpdate] = 0;
+                if (++object.currentUpdate >= LAST_UPDATES_COUNT) {
+                    object.currentUpdate = 0;
+                }
             }
         }
     });

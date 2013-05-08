@@ -15,9 +15,9 @@
             <tr>
                 <th width="15%">Category</th>
                 <th width="20%">Name</th>
-                <th width="45%">Value</th>
+                <th width="35%">Value</th>
                 <th width="15%">Updates <em>(/s)</em></th>
-                <th width="5%">Plot</th>
+                <th width="15%">Plot</th>
             </tr>
             </thead>
             <tbody>
@@ -29,7 +29,9 @@
                 </td>
                 <td><span class="badge">{{property.updatesPerSeconds}}</span></td>
                 <td class="force-text-center">
-                    <input type="checkbox" value="{{property.name}}" ng-checked="property.plot" ng-model="property.plot">
+                    [<span ng-repeat="value in property.value">
+                        <input type="checkbox" value="{{$index}}" ng-checked="property.plot" ng-model="property.plot">
+                    <span ng-show="!$last">,&nbsp;</span></span>]
                 </td>
             </tr>
             <tr ng-show="objects[objectId].numberOfProperties == 0">
