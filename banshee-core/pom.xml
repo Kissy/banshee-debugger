@@ -10,7 +10,7 @@
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>2.4.1</version>
+            <version>2.5.0</version>
         </dependency>
     </dependencies>
 
@@ -28,7 +28,7 @@
                                     <arg value="--proto_path=src/main/protobuf"/>
                                     <arg value="--cpp_out=src/main/cpp"/>
                                     <arg value="--java_out=src/main/java"/>
-                                    <arg value="src/main/protobuf/Proto/Common/*.proto"/>
+                                    <arg value="src/main/protobuf/Proto/Common.proto"/>
                                     <arg value="src/main/protobuf/Proto/Debug/*.proto"/>
                                 </exec>
                             </tasks>

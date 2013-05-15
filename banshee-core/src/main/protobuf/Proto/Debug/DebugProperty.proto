@@ -2,9 +2,9 @@ option java_package = "fr.kissy.banshee.proto";
 option java_outer_classname = "DebugPropertyDTO";
 option java_generic_services = false;
 
-import "Proto/Common/Property.proto";
+import "Proto/Common.proto";
 
 message DebugPropertyProto {
     optional string category = 1 [default = "default"];
-    repeated PropertyProto properties = 2;
+    repeated Proto.Property properties = 2;
 }

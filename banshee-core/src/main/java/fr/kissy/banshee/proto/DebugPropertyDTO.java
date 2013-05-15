@@ -26,29 +26,29 @@ public final class DebugPropertyDTO {
     com.google.protobuf.ByteString
         getCategoryBytes();
 
-    // repeated .PropertyProto properties = 2;
+    // repeated .Proto.Property properties = 2;
     /**
-     * <code>repeated .PropertyProto properties = 2;</code>
+     * <code>repeated .Proto.Property properties = 2;</code>
      */
-    java.util.List<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto> 
+    java.util.List<fr.kissy.hellion.proto.Common.Property> 
         getPropertiesList();
     /**
-     * <code>repeated .PropertyProto properties = 2;</code>
+     * <code>repeated .Proto.Property properties = 2;</code>
      */
-    fr.kissy.hellion.proto.common.PropertyDto.PropertyProto getProperties(int index);
+    fr.kissy.hellion.proto.Common.Property getProperties(int index);
     /**
-     * <code>repeated .PropertyProto properties = 2;</code>
+     * <code>repeated .Proto.Property properties = 2;</code>
      */
     int getPropertiesCount();
     /**
-     * <code>repeated .PropertyProto properties = 2;</code>
+     * <code>repeated .Proto.Property properties = 2;</code>
      */
-    java.util.List<? extends fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder> 
+    java.util.List<? extends fr.kissy.hellion.proto.Common.PropertyOrBuilder> 
         getPropertiesOrBuilderList();
     /**
-     * <code>repeated .PropertyProto properties = 2;</code>
+     * <code>repeated .Proto.Property properties = 2;</code>
      */
-    fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder getPropertiesOrBuilder(
+    fr.kissy.hellion.proto.Common.PropertyOrBuilder getPropertiesOrBuilder(
         int index);
   }
   /**
@@ -109,10 +109,10 @@ public final class DebugPropertyDTO {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                properties_ = new java.util.ArrayList<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto>();
+                properties_ = new java.util.ArrayList<fr.kissy.hellion.proto.Common.Property>();
                 mutable_bitField0_ |= 0x00000002;
               }
-              properties_.add(input.readMessage(fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.PARSER, extensionRegistry));
+              properties_.add(input.readMessage(fr.kissy.hellion.proto.Common.Property.PARSER, extensionRegistry));
               break;
             }
           }
@@ -201,38 +201,38 @@ public final class DebugPropertyDTO {
       }
     }
 
-    // repeated .PropertyProto properties = 2;
+    // repeated .Proto.Property properties = 2;
     public static final int PROPERTIES_FIELD_NUMBER = 2;
-    private java.util.List<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto> properties_;
+    private java.util.List<fr.kissy.hellion.proto.Common.Property> properties_;
     /**
-     * <code>repeated .PropertyProto properties = 2;</code>
+     * <code>repeated .Proto.Property properties = 2;</code>
      */
-    public java.util.List<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto> getPropertiesList() {
+    public java.util.List<fr.kissy.hellion.proto.Common.Property> getPropertiesList() {
       return properties_;
     }
     /**
-     * <code>repeated .PropertyProto properties = 2;</code>
+     * <code>repeated .Proto.Property properties = 2;</code>
      */
-    public java.util.List<? extends fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder> 
+    public java.util.List<? extends fr.kissy.hellion.proto.Common.PropertyOrBuilder> 
         getPropertiesOrBuilderList() {
       return properties_;
     }
     /**
-     * <code>repeated .PropertyProto properties = 2;</code>
+     * <code>repeated .Proto.Property properties = 2;</code>
      */
     public int getPropertiesCount() {
       return properties_.size();
     }
     /**
-     * <code>repeated .PropertyProto properties = 2;</code>
+     * <code>repeated .Proto.Property properties = 2;</code>
      */
-    public fr.kissy.hellion.proto.common.PropertyDto.PropertyProto getProperties(int index) {
+    public fr.kissy.hellion.proto.Common.Property getProperties(int index) {
       return properties_.get(index);
     }
     /**
-     * <code>repeated .PropertyProto properties = 2;</code>
+     * <code>repeated .Proto.Property properties = 2;</code>
      */
-    public fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder getPropertiesOrBuilder(
+    public fr.kissy.hellion.proto.Common.PropertyOrBuilder getPropertiesOrBuilder(
         int index) {
       return properties_.get(index);
     }
@@ -602,23 +602,23 @@ public final class DebugPropertyDTO {
         return this;
       }
 
-      // repeated .PropertyProto properties = 2;
-      private java.util.List<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto> properties_ =
+      // repeated .Proto.Property properties = 2;
+      private java.util.List<fr.kissy.hellion.proto.Common.Property> properties_ =
         java.util.Collections.emptyList();
       private void ensurePropertiesIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          properties_ = new java.util.ArrayList<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto>(properties_);
+          properties_ = new java.util.ArrayList<fr.kissy.hellion.proto.Common.Property>(properties_);
           bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          fr.kissy.hellion.proto.common.PropertyDto.PropertyProto, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder, fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder> propertiesBuilder_;
+          fr.kissy.hellion.proto.Common.Property, fr.kissy.hellion.proto.Common.Property.Builder, fr.kissy.hellion.proto.Common.PropertyOrBuilder> propertiesBuilder_;
 
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
-      public java.util.List<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto> getPropertiesList() {
+      public java.util.List<fr.kissy.hellion.proto.Common.Property> getPropertiesList() {
         if (propertiesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(properties_);
         } else {
@@ -626,7 +626,7 @@ public final class DebugPropertyDTO {
         }
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
       public int getPropertiesCount() {
         if (propertiesBuilder_ == null) {
@@ -636,9 +636,9 @@ public final class DebugPropertyDTO {
         }
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
-      public fr.kissy.hellion.proto.common.PropertyDto.PropertyProto getProperties(int index) {
+      public fr.kissy.hellion.proto.Common.Property getProperties(int index) {
         if (propertiesBuilder_ == null) {
           return properties_.get(index);
         } else {
@@ -646,10 +646,10 @@ public final class DebugPropertyDTO {
         }
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
       public Builder setProperties(
-          int index, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto value) {
+          int index, fr.kissy.hellion.proto.Common.Property value) {
         if (propertiesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -663,10 +663,10 @@ public final class DebugPropertyDTO {
         return this;
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
       public Builder setProperties(
-          int index, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder builderForValue) {
+          int index, fr.kissy.hellion.proto.Common.Property.Builder builderForValue) {
         if (propertiesBuilder_ == null) {
           ensurePropertiesIsMutable();
           properties_.set(index, builderForValue.build());
@@ -677,9 +677,9 @@ public final class DebugPropertyDTO {
         return this;
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
-      public Builder addProperties(fr.kissy.hellion.proto.common.PropertyDto.PropertyProto value) {
+      public Builder addProperties(fr.kissy.hellion.proto.Common.Property value) {
         if (propertiesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -693,10 +693,10 @@ public final class DebugPropertyDTO {
         return this;
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
       public Builder addProperties(
-          int index, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto value) {
+          int index, fr.kissy.hellion.proto.Common.Property value) {
         if (propertiesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -710,10 +710,10 @@ public final class DebugPropertyDTO {
         return this;
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
       public Builder addProperties(
-          fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder builderForValue) {
+          fr.kissy.hellion.proto.Common.Property.Builder builderForValue) {
         if (propertiesBuilder_ == null) {
           ensurePropertiesIsMutable();
           properties_.add(builderForValue.build());
@@ -724,10 +724,10 @@ public final class DebugPropertyDTO {
         return this;
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
       public Builder addProperties(
-          int index, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder builderForValue) {
+          int index, fr.kissy.hellion.proto.Common.Property.Builder builderForValue) {
         if (propertiesBuilder_ == null) {
           ensurePropertiesIsMutable();
           properties_.add(index, builderForValue.build());
@@ -738,10 +738,10 @@ public final class DebugPropertyDTO {
         return this;
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
       public Builder addAllProperties(
-          java.lang.Iterable<? extends fr.kissy.hellion.proto.common.PropertyDto.PropertyProto> values) {
+          java.lang.Iterable<? extends fr.kissy.hellion.proto.Common.Property> values) {
         if (propertiesBuilder_ == null) {
           ensurePropertiesIsMutable();
           super.addAll(values, properties_);
@@ -752,7 +752,7 @@ public final class DebugPropertyDTO {
         return this;
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
       public Builder clearProperties() {
         if (propertiesBuilder_ == null) {
@@ -765,7 +765,7 @@ public final class DebugPropertyDTO {
         return this;
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
       public Builder removeProperties(int index) {
         if (propertiesBuilder_ == null) {
@@ -778,16 +778,16 @@ public final class DebugPropertyDTO {
         return this;
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
-      public fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder getPropertiesBuilder(
+      public fr.kissy.hellion.proto.Common.Property.Builder getPropertiesBuilder(
           int index) {
         return getPropertiesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
-      public fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder getPropertiesOrBuilder(
+      public fr.kissy.hellion.proto.Common.PropertyOrBuilder getPropertiesOrBuilder(
           int index) {
         if (propertiesBuilder_ == null) {
           return properties_.get(index);  } else {
@@ -795,9 +795,9 @@ public final class DebugPropertyDTO {
         }
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
-      public java.util.List<? extends fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder> 
+      public java.util.List<? extends fr.kissy.hellion.proto.Common.PropertyOrBuilder> 
            getPropertiesOrBuilderList() {
         if (propertiesBuilder_ != null) {
           return propertiesBuilder_.getMessageOrBuilderList();
@@ -806,33 +806,33 @@ public final class DebugPropertyDTO {
         }
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
-      public fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder addPropertiesBuilder() {
+      public fr.kissy.hellion.proto.Common.Property.Builder addPropertiesBuilder() {
         return getPropertiesFieldBuilder().addBuilder(
-            fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.getDefaultInstance());
+            fr.kissy.hellion.proto.Common.Property.getDefaultInstance());
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
-      public fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder addPropertiesBuilder(
+      public fr.kissy.hellion.proto.Common.Property.Builder addPropertiesBuilder(
           int index) {
         return getPropertiesFieldBuilder().addBuilder(
-            index, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.getDefaultInstance());
+            index, fr.kissy.hellion.proto.Common.Property.getDefaultInstance());
       }
       /**
-       * <code>repeated .PropertyProto properties = 2;</code>
+       * <code>repeated .Proto.Property properties = 2;</code>
        */
-      public java.util.List<fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder> 
+      public java.util.List<fr.kissy.hellion.proto.Common.Property.Builder> 
            getPropertiesBuilderList() {
         return getPropertiesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          fr.kissy.hellion.proto.common.PropertyDto.PropertyProto, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder, fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder> 
+          fr.kissy.hellion.proto.Common.Property, fr.kissy.hellion.proto.Common.Property.Builder, fr.kissy.hellion.proto.Common.PropertyOrBuilder> 
           getPropertiesFieldBuilder() {
         if (propertiesBuilder_ == null) {
           propertiesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              fr.kissy.hellion.proto.common.PropertyDto.PropertyProto, fr.kissy.hellion.proto.common.PropertyDto.PropertyProto.Builder, fr.kissy.hellion.proto.common.PropertyDto.PropertyProtoOrBuilder>(
+              fr.kissy.hellion.proto.Common.Property, fr.kissy.hellion.proto.Common.Property.Builder, fr.kissy.hellion.proto.Common.PropertyOrBuilder>(
                   properties_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -867,11 +867,11 @@ public final class DebugPropertyDTO {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\037Proto/Debug/DebugProperty.proto\032\033Proto" +
-      "/Common/Property.proto\"S\n\022DebugPropertyP" +
-      "roto\022\031\n\010category\030\001 \001(\t:\007default\022\"\n\nprope" +
-      "rties\030\002 \003(\0132\016.PropertyProtoB-\n\026fr.kissy." +
-      "banshee.protoB\020DebugPropertyDTO\210\001\000"
+      "\n\037Proto/Debug/DebugProperty.proto\032\022Proto" +
+      "/Common.proto\"T\n\022DebugPropertyProto\022\031\n\010c" +
+      "ategory\030\001 \001(\t:\007default\022#\n\nproperties\030\002 \003" +
+      "(\0132\017.Proto.PropertyB-\n\026fr.kissy.banshee." +
+      "protoB\020DebugPropertyDTO\210\001\000"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -890,7 +890,7 @@ public final class DebugPropertyDTO {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          fr.kissy.hellion.proto.common.PropertyDto.getDescriptor(),
+          fr.kissy.hellion.proto.Common.getDescriptor(),
         }, assigner);
   }
 
